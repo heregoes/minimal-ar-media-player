@@ -2,6 +2,25 @@
 
 let isVideoPlaying = false;
 
+document.onkeydown = function(e) {
+    if(e.keyCode == 123) {
+     return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+     return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+     return false;
+    }
+    if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+     return false;
+    }
+
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){
+     return false;
+    }      
+ }
+
 /* Videohandler Function: to let the video play when the arSession is ready */
 AFRAME.registerComponent("videohandler", {
 	init: function() {
@@ -16,11 +35,16 @@ AFRAME.registerComponent("videohandler", {
 		this.video_src_3 = document.querySelector("#asset_vid_3");
 		this.button_play_3 = document.querySelector("#button_play_3");
 		
-	    	const marker = document.querySelector("#marker");
+	    const marker = document.querySelector("#marker");
 		this.video_plane_1 = document.querySelector("#video_1");
 		this.video_plane_2 = document.querySelector("#video_2");
 		this.video_plane_3 = document.querySelector("#video_3");
-		
+
+
+		this.video_src_1.currentTime = 64;
+		this.video_src_2.currentTime = 155;
+		this.video_src_3.currentTime = 85;
+
 		this.audio = document.querySelector("#asset_audio_click");
 			
 		marker.addEventListener("markerFound", function () {
@@ -59,7 +83,8 @@ AFRAME.registerComponent("videohandler", {
 		this.el.addEventListener("click", e => {
 			if (this.el === this.button_play_1) {
 				this.button_play_1.setAttribute("visible", false);
-				this.audio.play();					
+				this.audio.play();	
+							
 				this.video_src_1.play();
 				isVideoPlaying = true;
 				
@@ -153,7 +178,7 @@ AFRAME.registerComponent("forwardhandler", {
 				
 			} else if (this.el === this.button_forward_1) {
 				this.video_src_1.pause();
-				this.video_src_1.currentTime = 0;
+				// this.video_src_1.currentTime = 30;
 				isVideoPlaying = false;
 				this.audio.play();
 				
@@ -171,7 +196,7 @@ AFRAME.registerComponent("forwardhandler", {
 				
 			} else if (this.el === this.button_forward_2) {
 				this.video_src_2.pause();
-				this.video_src_2.currentTime = 0;
+				// this.video_src_2.currentTime = 10;
 				isVideoPlaying = false;
 				this.audio.play();
 				
@@ -189,7 +214,7 @@ AFRAME.registerComponent("forwardhandler", {
 				
 			} else if (this.el === this.button_forward_3) {
 				this.video_src_3.pause();
-				this.video_src_3.currentTime = 0;
+				// this.video_src_3.currentTime = 10;
 				isVideoPlaying = false;
 				this.audio.play();
 				
@@ -287,7 +312,7 @@ AFRAME.registerComponent("backwardhandler", {
 				
 			} else if (this.el === this.button_backward_2) {
 				this.video_src_2.pause();
-				this.video_src_2.currentTime = 0;
+				// this.video_src_2.currentTime = 10;
 				isVideoPlaying = false;
 				this.audio.play();
 				
@@ -305,7 +330,7 @@ AFRAME.registerComponent("backwardhandler", {
 				
 			} else if (this.el === this.button_backward_3) {
 				this.video_src_3.pause();
-				this.video_src_3.currentTime = 0;
+				// this.video_src_3.currentTime = 10;
 				isVideoPlaying = false;
 				this.audio.play();
 				
@@ -356,13 +381,13 @@ AFRAME.registerComponent("linkhandler", {
 		this.el.addEventListener("click", e => {
 			if (this.el === this.button_linkedin) {
 				this.audio.play();
-				window.open("https://www.linkedin.com/in/mariam-raad", "_blank", true);
+				window.open("https://www.linkedin.com/in/gabriel-nyante-028b38117/", "_blank", true);
 			} else if (this.el === this.button_xing) {
 				this.audio.play();
-				window.open("https://www.xing.com/profile/Mariam_Raad/cv", "_blank", true);
+				window.open("https://gabrielnyante.com/", "_blank", true);
 			} else if (this.el === this.button_website) {
 				this.audio.play();
-				window.open("https://github.com/MariamRaad", "_blank", true);
+				window.open("https://github.com/heregoes", "_blank", true);
 			} 
 		})
 	}
@@ -392,6 +417,7 @@ AFRAME.registerComponent("scannerhandler", {
     		const scanner = document.querySelector("#scanner");
 
     		marker.addEventListener('markerFound', function () {
+				// alert('ssssss')
        			scanner.hidden = true;
     		}.bind(this));
     

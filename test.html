@@ -29,8 +29,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
 
     <!-- A-Frame -->
-    <script src="lib/aframe-v1.0.4.js"></script> 
-    <!-- https://aframe.io/releases/1.0.4/aframe.min.js -->
+    <script src="lib/aframe-v1.0.4.js"></script> <!-- https://aframe.io/releases/1.0.4/aframe.min.js -->
 
     <!-- AR.js -->
     <!-- Version without NFT/image tracking but with marker + location based support -->
@@ -38,11 +37,11 @@
     <!-- https://raw.githack.com/AR-js-org/AR.js/3.1.0/aframe/build/aframe-ar.js -->
 
     <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://mariamraad.github.io/ar-portfolio/style.css">
 
     <!-- import scripts to add functionality -->
-    <script src="./eventhandler.js"></script>
-    <script src="./aframe-render-order-component.js"></script>
+    <script src="https://mariamraad.github.io/ar-portfolio/eventhandler.js"></script>
+    <script src="https://mariamraad.github.io/ar-portfolio/aframe-render-order-component.js"></script>
     <!-- https://unpkg.com/aframe-render-order-component@1.1.0/dist/aframe-render-order-component.min.js -->
 </head>
 
@@ -63,11 +62,11 @@
         renderer="sortObjects: true; antialias: true; alpha: true; precision: mediump;"
         render-order="layer1, layer2, layer3" embedded
         arjs="trackingMethod: best; sourceType: webcam; patternRatio: 0.8 debugUIEnabled: false;"
-        vr-mode-ui="enabled: false;">
+        vr-mode-ui="enabled: false;"
+        >
 
         <a-assets>
             <img id="asset_btn_play" src="./assets/images/buttons/3D/Play.png"></img>
-            <img id="asset_btn_start" src="./assets/images/texts/studio.jpeg"></img>
             <img id="asset_btn_forward" src="./assets/images/buttons/3D/Pfeil_Rechts_Text.png"></img>
             <img id="asset_btn_backward" src="./assets/images/buttons/3D/Pfeil_Links_Text.png"></img>
             <img id="asset_btn_linkedin" src="./assets/images/buttons/3D/LinkedIn_Text.png"></img>
@@ -102,34 +101,22 @@
         </a-assets>
 
         <a-marker logohandler scannerhandler videohandler id="marker" emitevents="true" preset="custom" type="pattern"
-            url="./assets/images/markers/pattern_black.patt" smooth="true"
+            url="https://mariamraad.github.io/ar-portfolio/assets/images/markers/pattern_black.patt" smooth="true"
             smoothCount="10" smoothTolerance="0.02" smoothThreshold="2">
             <!-- Scene 0 -->
-            <a-text 
-                id="description_0"
-                mixin="text"
-                font="kelsonsans"
-                rotation="-90 0 0"
-                wrap-count="20"
-                color="black"
-                render-order="layer1"
-                position="-15 0 2"
-                scale="0.9 0.9 0.9"
-                animation="property: position; to: -2 0 0; dur: 5000; easing: easeInOutQuad; loop: false;">
-            </a-text>
-            <!-- <a-plane id="description_0" material="src: #asset_descr_0;" position="0 0 0" rotation="-90 0 0"
-                height="5" width="7" render-order="layer1"></a-plane> -->
+            <!-- <a-text mixin="text" font="kelsonsans" position="-1 0 0" rotation="-90 0 0" wrap-count="20" color="black" render-order="layer1"></a-text> -->
+            <!-- <a-plane id="description_0" material="src: #asset_descr_0;" position="0 0 1.25" rotation="-90 0 0"
+                height="1" width="2.2" render-order="layer1"></a-plane> -->
             <a-plane forwardhandler id="button_forward_0"
-                material="src: #asset_btn_forward;   transparent:true; alpha-test:0.5" position="0 0 2"
-                rotation="-90 0 0" height="1" width="1" scale="0 0 0" render-order="layer3"
-                animation="property: scale; to: 1 1 1; dur: 5000; easing: easeInOutQuad; loop: false;"></a-plane>
-
-            <!-- Scene 1 -->
+                material="src: #asset_btn_forward;   transparent:true; alpha-test:0.5" position="1 0.25 3.5"
+                rotation="-90 0 0" height="0.7" width="0.7" render-order="layer3"></a-plane>
+            
+                <!-- Scene 1 -->
             <a-plane videohandler id="button_play_1"
                 material="src: #asset_btn_play;      transparent:true; alpha-test:0.5" position="0 0.5 2"
                 rotation="-90 0 0" height="1" width="1" render-order="layer3" visible="false"></a-plane>
-            <a-box id="video_1" material="src: #asset_vid_1;" position="0 -1 2" rotation="-90 0 0" height="4" width="5"
-                render-order="layer1" visible="false"></a-box>
+            <a-plane id="video_1" material="src: #asset_vid_1;" position="0 0 2" rotation="-90 0 0" height="4" width="5"
+                render-order="layer1" visible="false"></a-plane>
             <a-plane id="description_1" material="src: #asset_descr_1;" position="0 0 -2" rotation="-90 0 0"
                 height="3.5" width="3" render-order="layer1" visible="false"></a-plane>
             <a-plane forwardhandler id="button_forward_1"
@@ -138,39 +125,36 @@
             <a-plane backwardhandler id="button_backward_1"
                 material="src: #asset_btn_backward; transparent:true; alpha-test:0.5" position="-1.7 0.25 4.5"
                 rotation="-90 0 0" height="1" width="1" render-order="layer3" visible="false"></a-plane>
-            <!-- <a-sphere backwardhandler id="button_backward_1" rotation="-140 0 0" height="1" width="1"
-                position="-1.7 0.25 5" radius="0.7" render-order="layer3" visible="false"
-                material="src: #asset_btn_backward; transparent:true; alpha-test:0.5"></a-sphere> -->
 
             <!-- Scene 2 -->
             <a-plane videohandler id="button_play_2"
-                material="src: #asset_btn_play;     transparent:true; alpha-test:0.5" position="0 0.5 2"
-                rotation="-90 0 0" height="1" width="1" render-order="layer3" visible="false"></a-plane>
-            <a-box id="video_2" material="src: #asset_vid_2;" position="0 -1 2" rotation="-90 0 0" height="4"
-                width="5" render-order="layer1" visible="false"></a-box>
-            <a-plane id="description_2" material="src: #asset_descr_2;" position="0 0 -2" rotation="-90 0 0" height="3.5"
-                width="3" render-order="layer1" visible="false"></a-plane>
+                material="src: #asset_btn_play;     transparent:true; alpha-test:0.5" position="0 0.2 2"
+                rotation="-90 0 0" height="0.7" width="0.7" render-order="layer3" visible="false"></a-plane>
+            <a-plane id="video_2" material="src: #asset_vid_2;" position="0 0 2" rotation="-90 0 0" height="1.7"
+                width="2.2" render-order="layer1" visible="false"></a-plane>
+            <a-plane id="description_2" material="src: #asset_descr_2;" position="0 0 0" rotation="-90 0 0" height="1.7"
+                width="2.2" render-order="layer1" visible="false"></a-plane>
             <a-plane forwardhandler id="button_forward_2"
-                material="src: #asset_btn_forward;  transparent:true; alpha-test:0.5" position="1.7 0.25 4.5"
-                rotation="-90 0 0" height="1" width="1" render-order="layer3" visible="false"></a-plane>
+                material="src: #asset_btn_forward;  transparent:true; alpha-test:0.5" position="1.25 0.25 3.5"
+                rotation="-90 0 0" height="0.7" width="0.7" render-order="layer3" visible="false"></a-plane>
             <a-plane backwardhandler id="button_backward_2"
-                material="src: #asset_btn_backward; transparent:true; alpha-test:0.5" position="-1.7 0.25 4.5"
-                rotation="-90 0 0" height="1" width="1" render-order="layer3" visible="false"></a-plane>
+                material="src: #asset_btn_backward; transparent:true; alpha-test:0.5" position="-1.25 0.25 3.5"
+                rotation="-90 0 0" height="0.7" width="0.7" render-order="layer3" visible="false"></a-plane>
 
             <!-- Scene 3 -->
             <a-plane videohandler id="button_play_3"
-                material="src: #asset_btn_play;     transparent:true; alpha-test:0.5" position="0 0.5 2"
-                rotation="-90 0 0" height="1" width="1" render-order="layer3" visible="false"></a-plane>
-            <a-box id="video_3" material="src: #asset_vid_3;" position="0 -1 2" rotation="-90 0 0" height="4"
-                width="5" render-order="layer1" visible="false"></a-box>
-            <a-plane id="description_3" material="src: #asset_descr_3;" position="0 0 -2" rotation="-90 0 0" height="3.5"
-                width="3" render-order="layer1" visible="false"></a-plane>
+                material="src: #asset_btn_play;     transparent:true; alpha-test:0.5" position="0 0.2 2"
+                rotation="-90 0 0" height="0.7" width="0.7" render-order="layer3" visible="false"></a-plane>
+            <a-plane id="video_3" material="src: #asset_vid_3;" position="0 0 2" rotation="-90 0 0" height="1.7"
+                width="2.2" render-order="layer1" visible="false"></a-plane>
+            <a-plane id="description_3" material="src: #asset_descr_3;" position="0 0 0" rotation="-90 0 0" height="1.7"
+                width="2.2" render-order="layer1" visible="false"></a-plane>
             <a-plane forwardhandler id="button_forward_3"
-                material="src: #asset_btn_forward;  transparent:true; alpha-test:0.5" position="1.7 0.25 4.5"
-                rotation="-90 0 0" height="1" width="1" render-order="layer3" visible="false"></a-plane>
+                material="src: #asset_btn_forward;  transparent:true; alpha-test:0.5" position="1.25 0.25 3.5"
+                rotation="-90 0 0" height="0.7" width="0.7" render-order="layer3" visible="false"></a-plane>
             <a-plane backwardhandler id="button_backward_3"
-                material="src: #asset_btn_backward; transparent:true; alpha-test:0.5" position="-1.7 0.25 4.5"
-                rotation="-90 0 0" height="1" width="1" render-order="layer3" visible="false"></a-plane>
+                material="src: #asset_btn_backward; transparent:true; alpha-test:0.5" position="-1.25 0.25 3.5"
+                rotation="-90 0 0" height="0.7" width="0.7" render-order="layer3" visible="false"></a-plane>
 
             <!-- Scene 4 -->
             <a-plane id="description_4" material="src: #asset_descr_4;" position="0 0 1.25" rotation="-90 0 0"
@@ -186,7 +170,7 @@
                 rotation="-90 0 0" height="0.7" width="0.7" render-order="layer3" visible="false"></a-plane>
             <a-plane backwardhandler id="button_backward_4"
                 material="src: #asset_btn_backward; transparent:true; alpha-test:0.5" position="-1.25 0.25 3.5"
-                rotation="-90 0 0" height="1" width="1" render-order="layer3" visible="false"></a-plane>
+                rotation="-90 0 0" height="0.7" width="0.7" render-order="layer3" visible="false"></a-plane>
         </a-marker>
 
         <!-- static camera that moves according to the device movemenents -->
