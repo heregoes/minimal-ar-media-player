@@ -1,11 +1,10 @@
-# Augmented Reality Portfolio
+# Augmented Reality Media Player
 
 <!-- :warning: *This project is currently Work In Progress, so the Application might not work correctly when trying it out* :warning: -->
 ___________
 
 Scan the QR-Code (e.g. with your smartphone camera) to get to the website and then scan it again to discover my Augmented Reality Portfolio </br>
 
-If it's not working, open this link in your browser: https://mariamraad.github.io/ar-portfolio </br>
 And then scan the QR-Code to see the Augmented Reality content.
 
 The application works best with:
@@ -28,6 +27,7 @@ Soundeffect is from: https://freesound.org/people/baidonovan/sounds/187335/ (CC0
 ___________
 
 
-<img src="Android.gif" width="550" height="350"/>
 
-More videos are here to see: https://drive.google.com/drive/folders/198N0-Yb3H89norcSUQTSEYfusMVdA14v?usp=sharing
+https://github.com/user-attachments/assets/b9009a1e-3e42-4a52-b733-3d30d18cff8b
+
+
